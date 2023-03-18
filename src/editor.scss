@@ -1,0 +1,17 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.peak-four-ts-title input[type="text"]{
+  font-family: var(--wp--preset--font-family--lazzer);
+  font-size: var(--wp--preset--font-size--xxx-large);
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0;
+  padding: 0 0 0 1em;
+}
+.peak-four-ts-title::before {
+  font-size: calc(var(--wp--preset--font-size--xxx-large) * .33);
+}

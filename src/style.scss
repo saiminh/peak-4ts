@@ -1,0 +1,108 @@
+@mixin mobile-only {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+@mixin tablet-up {
+  @media (min-width: 640.1px) {
+    @content;
+  }
+}
+@mixin with-fine-pointer {
+  @media (pointer: fine) {
+    @content;
+  }
+}
+
+body {
+  counter-reset: section;
+}
+.peak-four-ts {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  position: relative;
+  overflow: hidden;
+  height: calc( var(--wp--preset--font-size--huge) * 1.2 + var(--wp--preset--font-size--huge) * 0.125);
+}
+.peak-four-ts-title {
+  font-size: var(--wp--preset--font-size--huge);
+  line-height: 1.2;
+  text-transform: uppercase;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: .125em;
+  padding-bottom: 0;
+  padding-left: 1em;
+  background-color: #FFF;
+  position: relative;
+  cursor: pointer;
+  height: 1.2em;
+  overflow: hidden;
+
+  &::before {
+    counter-increment: section;
+    content: counter(section) ".";
+    height: 1.25em;
+    width: 1.25em;
+    font-weight: 400;
+    font-size: .33em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .6em;
+    border: calc( var(--wp--preset--font-size--huge) * .025 ) solid;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 1.33em);    
+  }
+  & span:not(:first-child) {
+    letter-spacing: -.02em;
+    display: inline-block;
+    transform: translateY(1.5em);
+    transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  & span.a + span.c,
+  & span + span.t {
+    margin-left: -0.03em;
+  }
+  &.intersecting span:not(:first-child) {
+    transform: translateY(0);
+  }
+}
+@keyframes ts-in {
+  0% {
+    transform: translateY(1.5em);
+  }
+  100% {
+    transform: translateY(0em);
+  }
+}
+.peak-four-ts-toggle {
+  position: absolute; 
+  top: calc( var(--wp--preset--font-size--huge) * .33  );
+  right: 0;
+  width: calc( var(--wp--preset--font-size--huge) * 0.66 );
+  height: calc( var(--wp--preset--font-size--huge) * 0.66 );
+  z-index: 999;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+  transform: rotate(0deg);
+  transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.peak-four-ts-title:hover .peak-four-ts-toggle {
+  transform: rotate(90deg)
+}
+.peak-four-ts-open .peak-four-ts-toggle {
+  transform: rotate(45deg)
+}
+.peak-four-ts-open .peak-four-ts-title:hover .peak-four-ts-toggle {
+  transform: rotate(135deg)
+}
+.peak-four-ts-content-inner {
+  padding-bottom: 1em;
+  & :last-child {
+    margin-bottom: 0;
+  }
+}

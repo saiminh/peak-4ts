@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/peak-4ts",
+	"version": "0.1.0",
+	"title": "Peak 4ts",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "peak-4ts",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Title"
+    }
+  },
+	"editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
