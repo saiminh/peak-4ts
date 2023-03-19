@@ -1,5 +1,8 @@
 window.addEventListener('load', function() {
-  
+  initFourTs();
+})
+
+const initFourTs = function(){
   const fourts = Array.from(document.querySelectorAll('.peak-four-ts'));
   
   fourts.forEach(fourt => {
@@ -31,9 +34,13 @@ window.addEventListener('load', function() {
       }
       isOpen = !isOpen;
     })
+
+    window.addEventListener('resize', function() {
+      observer.unobserve(target);
+    })
+
   })
-  
-})
+}
 
 let options = {
   root: document.body,
@@ -50,3 +57,7 @@ let callback = (entries, observer) => {
     }
   })
 }
+
+window.addEventListener('resize', function() {
+  initFourTs();
+})

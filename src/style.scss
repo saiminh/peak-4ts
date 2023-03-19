@@ -40,6 +40,10 @@ body {
   height: 1.2em;
   overflow: hidden;
 
+  @include mobile-only {
+    line-height: 1.1;
+  }
+
   &::before {
     counter-increment: section;
     content: counter(section) ".";
@@ -56,6 +60,9 @@ body {
     position: absolute;
     left: 0;
     top: calc(50% - 1.33em);    
+  }
+  & span {
+    position: relative;
   }
   & span:not(:first-child) {
     letter-spacing: -.02em;
