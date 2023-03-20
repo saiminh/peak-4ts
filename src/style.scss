@@ -22,7 +22,6 @@ body {
   border-bottom: 1px solid;
   position: relative;
   overflow: hidden;
-  height: calc( var(--wp--preset--font-size--huge) * 1.2 + var(--wp--preset--font-size--huge) * 0.125);
 }
 .peak-four-ts-title {
   font-size: var(--wp--preset--font-size--huge);
@@ -31,18 +30,13 @@ body {
   position: relative;
   margin-top: 0;
   margin-bottom: 0;
-  padding-top: .125em;
-  padding-bottom: 0;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-left: 1em;
   background-color: #FFF;
   position: relative;
   cursor: pointer;
-  height: 1.2em;
   overflow: hidden;
-
-  @include mobile-only {
-    line-height: 1.1;
-  }
 
   &::before {
     counter-increment: section;
@@ -63,6 +57,7 @@ body {
   }
   & span {
     position: relative;
+    vertical-align: text-top;
   }
   & span:not(:first-child) {
     letter-spacing: -.02em;
@@ -107,7 +102,13 @@ body {
 .peak-four-ts-open .peak-four-ts-title:hover .peak-four-ts-toggle {
   transform: rotate(135deg)
 }
+.peak-four-ts-content {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
 .peak-four-ts-content-inner {
+  // transform: translateY(-100%);
   padding-bottom: 1em;
   & :last-child {
     margin-bottom: 0;

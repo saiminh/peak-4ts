@@ -7,10 +7,12 @@ const initFourTs = function(){
   
   fourts.forEach(fourt => {
 
+    // observer the first span for intersection
     let observer = new IntersectionObserver(callback, options);
     let target = fourt.querySelector('.peak-four-ts-title span:first-child');
     observer.observe(target);
 
+    //delay of the animation per letter
     fourt.querySelectorAll('.peak-four-ts-title span:not(:first-child)').forEach((span, index) => {
       span.style.transitionDelay = index * .02 + 's';
     })
@@ -18,19 +20,16 @@ const initFourTs = function(){
     const toggle = fourt.querySelector('.peak-four-ts-title'),
           content = fourt.querySelector('.peak-four-ts-content-inner'),
           contentHeight = content.offsetHeight;
-
     let isOpen = false;
-    content.style.marginTop = -contentHeight + 'px';
-    content.closest('.peak-four-ts').style.height = 'auto';
-    
+
     toggle.addEventListener('click', function() {
-      content.style.transition = 'margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+      content.parentElement.style.transition = 'height 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
       fourt.classList.toggle('peak-four-ts-open');
       
       if ( !isOpen ) {
-        content.style.marginTop = 0;
+        content.parentElement.style.height = contentHeight+'px';
       } else {
-        content.style.marginTop = -contentHeight + 'px';
+        content.parentElement.style.height = 0;
       }
       isOpen = !isOpen;
     })
