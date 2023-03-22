@@ -25,7 +25,7 @@ body {
 }
 .peak-four-ts-title {
   font-size: var(--wp--preset--font-size--huge);
-  line-height: 1.2;
+  line-height: 1;
   text-transform: uppercase;
   position: relative;
   margin-top: 0;
@@ -58,6 +58,7 @@ body {
   & span {
     position: relative;
     vertical-align: text-top;
+    display: inline-block;
   }
   & span:not(:first-child) {
     letter-spacing: -.02em;
